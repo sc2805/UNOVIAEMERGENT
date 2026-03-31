@@ -6,48 +6,87 @@ Unovia consulting is a wealth management cum Tax consulting firm established in 
 ## User Personas
 - **Potential Clients**: HNWIs, businesses seeking wealth management and tax consulting
 - **Business Owners**: Companies needing GST compliance and financial advisory
-- **Investors**: Individuals seeking investment planning services
+- **Admin Users**: Team members managing inquiries and blog content
 
 ## Core Requirements
 - Single-page landing website with modern, professional design
 - Light theme with navy blue accents matching the logo
 - Sections: Hero, About, Services, Team, Insights/Blog, Contact
 - Contact form with database storage
-- Contact details prominently displayed
+- Admin dashboard for content management
 
-## What's Been Implemented (December 2025)
+## What's Been Implemented
+
+### Phase 1 (December 2025)
 - [x] Responsive navigation with sticky header and glass effect
 - [x] Hero section with CTAs and asymmetric layout
 - [x] About section with 10+ years expertise stats
-- [x] Services grid (5 services: Wealth Management, Tax Consulting, Financial Advisory, GST & Compliance, Investment Planning)
+- [x] Services grid (5 services)
 - [x] Team section with overlapping cards
 - [x] Blog/Insights section with API integration
 - [x] Contact section with functional form (saves to MongoDB)
 - [x] Contact details: Email, Phone, Location
 - [x] Mobile responsive design
-- [x] Typography: Cormorant Garamond (headings), Manrope (body)
-- [x] Color scheme: Navy (#0B1B3D), Gold accent (#C5A880), Warm background (#FAF9F6)
+
+### Phase 2 (December 2025)
+- [x] WhatsApp floating button (wa.me/917278671467)
+- [x] Admin dashboard at /admin with protected routes
+- [x] Admin login with JWT authentication (connect@unovia.in / Unovia@2805)
+- [x] Contact inquiry management (view, update status, delete)
+- [x] Full blog CRUD (Create, Read, Update, Delete)
+- [x] Blog categories and tags support
+- [x] Featured image support for blogs
+- [x] Publish/Draft toggle for blogs
+- [x] Dashboard stats (total inquiries, new inquiries, blogs count)
+- [x] Email notification ready (Resend integration - needs API key)
 
 ## Architecture
 - **Frontend**: React + Tailwind CSS + Shadcn/UI
 - **Backend**: FastAPI + MongoDB
-- **APIs**: /api/contact (POST/GET), /api/blogs (POST/GET), /api/blogs/seed
+- **Auth**: JWT with httpOnly cookies
+- **Email**: Resend (when API key is configured)
+
+## APIs
+### Public
+- GET /api/ - Health check
+- POST /api/contact - Submit contact form
+- GET /api/blogs - Get published blogs
+- GET /api/blogs/{id} - Get single blog
+- POST /api/blogs/seed - Seed initial blogs
+
+### Auth
+- POST /api/auth/login - Admin login
+- POST /api/auth/logout - Admin logout
+- GET /api/auth/me - Get current user
+
+### Admin (Protected)
+- GET /api/admin/stats - Dashboard statistics
+- GET /api/admin/inquiries - List all inquiries
+- PATCH /api/admin/inquiries/{id} - Update inquiry status
+- DELETE /api/admin/inquiries/{id} - Delete inquiry
+- GET /api/admin/blogs - List all blogs
+- POST /api/admin/blogs - Create blog
+- PATCH /api/admin/blogs/{id} - Update blog
+- DELETE /api/admin/blogs/{id} - Delete blog
+
+## Pending Configuration
+- **RESEND_API_KEY**: Add to backend/.env to enable email notifications
 
 ## Prioritized Backlog
 ### P0 (Critical) - DONE
-- All core sections implemented
+- All core features implemented
 
 ### P1 (Important)
-- Email notification on form submission
-- Admin panel to manage inquiries
+- Configure Resend API key for email notifications
+- Add rich text editor for blog content
 
 ### P2 (Nice to have)
-- Blog management system
-- Client testimonials section
 - Newsletter subscription
-- WhatsApp integration
+- Client testimonials section
+- Blog image upload to cloud storage
+- SEO meta tags per blog post
 
-## Next Tasks
-1. Add email notification for contact form submissions
-2. Create admin dashboard for managing inquiries
-3. Add more blog posts management
+## Admin Credentials
+- **Email**: connect@unovia.in
+- **Password**: Unovia@2805
+- **URL**: /admin/login
