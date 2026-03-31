@@ -784,13 +784,15 @@ const ContactSection = () => {
 
         {/* Footer */}
         <div className="mt-24 pt-8 border-t border-[#FAF9F6]/10">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center mb-4 md:mb-0">
-              <Logo />
+          <div className="bg-[#FAF9F6] -mx-6 md:-mx-12 px-6 md:px-12 py-6 mt-8">
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <div className="flex items-center mb-4 md:mb-0">
+                <Logo />
+              </div>
+              <p className="text-[#0B1B3D]/50 text-sm" data-testid="copyright">
+                © 2025 Unovia Consulting. All rights reserved.
+              </p>
             </div>
-            <p className="text-[#FAF9F6]/50 text-sm" data-testid="copyright">
-              © 2025 Unovia Consulting. All rights reserved.
-            </p>
           </div>
         </div>
       </div>
