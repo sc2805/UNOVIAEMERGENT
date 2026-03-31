@@ -1,34 +1,155 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Main App Styles for Unovia Consulting */
+
+/* Navigation Glass Effect */
+.nav-glass {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: rgba(250, 249, 246, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+/* Section backgrounds */
+.section-primary {
+    background-color: #FAF9F6;
+}
+
+.section-secondary {
+    background-color: #F3F0EA;
+}
+
+.section-navy {
+    background-color: #0B1B3D;
+}
+
+/* Typography classes */
+.font-heading {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.font-body {
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Service grid borders */
+.service-card {
+    border-right: 1px solid rgba(11, 27, 61, 0.1);
+    border-bottom: 1px solid rgba(11, 27, 61, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.service-card:hover {
+    background-color: #F3F0EA;
+}
+
+/* Remove right border for last column items */
+@media (min-width: 1024px) {
+    .service-card:nth-child(3n) {
+        border-right: none;
     }
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+@media (min-width: 768px) and (max-width: 1023px) {
+    .service-card:nth-child(2n) {
+        border-right: none;
+    }
 }
 
-.App-link {
-    color: #61dafb;
+@media (max-width: 767px) {
+    .service-card {
+        border-right: none;
+    }
 }
 
-@keyframes App-logo-spin {
+/* Button hover effects */
+.btn-navy {
+    background-color: #0B1B3D;
+    color: #FAF9F6;
+    transition: all 0.3s ease;
+}
+
+.btn-navy:hover {
+    background-color: #1A2C5B;
+    transform: translateY(-2px);
+}
+
+.btn-outline-navy {
+    border: 1px solid #0B1B3D;
+    color: #0B1B3D;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-navy:hover {
+    background-color: #0B1B3D;
+    color: #FAF9F6;
+}
+
+/* Image overlay effects */
+.image-frame {
+    box-shadow: 0 25px 50px -12px rgba(11, 27, 61, 0.15);
+}
+
+/* Contact form inputs for dark section */
+.input-dark {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(250, 249, 246, 0.3);
+    color: #FAF9F6;
+    padding: 12px 0;
+    transition: border-color 0.3s ease;
+}
+
+.input-dark:focus {
+    outline: none;
+    border-bottom-color: #C5A880;
+}
+
+.input-dark::placeholder {
+    color: rgba(250, 249, 246, 0.5);
+}
+
+/* Blog card hover */
+.blog-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px -10px rgba(11, 27, 61, 0.1);
+}
+
+/* Large typography element */
+.large-number {
+    font-size: 12rem;
+    line-height: 1;
+    font-weight: 500;
+    opacity: 0.08;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+@media (max-width: 768px) {
+    .large-number {
+        font-size: 8rem;
+    }
+}
+
+/* Smooth scroll anchor offset */
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
     from {
-        transform: rotate(0deg);
+        opacity: 0;
+        transform: translateY(-10px);
     }
     to {
-        transform: rotate(360deg);
+        opacity: 1;
+        transform: translateY(0);
     }
 }
