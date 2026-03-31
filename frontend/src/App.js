@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "@/App.css";
 import axios from "axios";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import { 
@@ -16,7 +17,8 @@ import {
   PiggyBank,
   ArrowRight,
   Clock,
-  ChevronRight
+  ChevronRight,
+  MessageCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,9 +30,33 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { AuthProvider, useAuth, AdminLogin, AdminDashboard } from "@/components/AdminDashboard";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
+
+// WhatsApp Button Component
+const WhatsAppButton = () => {
+  const phoneNumber = "917278671467";
+  const message = "Hello! I'm interested in your consulting services.";
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  return (
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-testid="whatsapp-button"
+      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+      aria-label="Chat on WhatsApp"
+    >
+      <MessageCircle className="h-6 w-6" />
+      <span className="absolute right-full mr-3 bg-white text-[#0B1B3D] px-3 py-2 rounded-lg shadow-md text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        Chat with us
+      </span>
+    </a>
+  );
+};
 
 // Logo component
 const Logo = () => (
@@ -772,11 +798,10 @@ const ContactSection = () => {
   );
 };
 
-// Main App Component
-function App() {
+// Home Page Component
+const HomePage = () => {
   return (
-    <div className="App">
-      <Toaster position="top-right" richColors />
+    <>
       <Navigation />
       <main>
         <HeroSection />
@@ -786,7 +811,63 @@ function App() {
         <InsightsSection />
         <ContactSection />
       </main>
-    </div>
+      <WhatsAppButton />
+    </>
+  );
+};
+
+// Protected Route for Admin
+const ProtectedRoute = ({ children }) => {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#FAF9F6] flex items-center justify-center">
+        <div className="text-[#0B1B3D]">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/admin/login" replace />;
+  }
+
+  return children;
+};
+
+// Admin Login Page
+const AdminLoginPage = () => {
+  const { user } = useAuth();
+  
+  if (user) {
+    return <Navigate to="/admin" replace />;
+  }
+
+  return <AdminLogin />;
+};
+
+// Main App Component
+function App() {
+  return (
+    <AuthProvider>
+      <div className="App">
+        <Toaster position="top-right" richColors />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/admin/login" element={<AdminLoginPage />} />
+            <Route 
+              path="/admin" 
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </AuthProvider>
   );
 }
 
