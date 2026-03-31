@@ -1,0 +1,64 @@
+{
+  "theme": "light",
+  "archetype": "Archetype 1: Organic & Earthy (Customized with Navy Blue for Wealth Management)",
+  "design_philosophy": "A blend of 'Old Money Tech' and modern Swiss precision. We use warm, off-white backgrounds to build trust, paired with deep navy blue for authority. Headings use an elegant serif to convey established wealth and expertise, while the body uses a clean, sterile sans-serif for financial clarity.",
+  "colors": {
+    "background": {
+      "primary": "#FAF9F6",
+      "secondary": "#F3F0EA",
+      "tertiary": "#EBE7E0"
+    },
+    "text": {
+      "primary": "#0B1B3D",
+      "secondary": "#4A5568",
+      "muted": "#718096"
+    },
+    "brand": {
+      "navy": "#0B1B3D",
+      "navy_light": "#1A2C5B",
+      "gold_accent": "#C5A880"
+    },
+    "border": "#E2E8F0"
+  },
+  "typography": {
+    "heading_font": "Cormorant Garamond, serif",
+    "body_font": "Manrope, sans-serif",
+    "scale": {
+      "h1": "text-5xl sm:text-6xl tracking-tight leading-none font-medium",
+      "h2": "text-4xl sm:text-5xl tracking-tight leading-tight font-medium",
+      "h3": "text-2xl sm:text-3xl tracking-tight leading-snug font-medium",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm uppercase tracking-[0.2em]"
+    }
+  },
+  "layout": {
+    "spacing_scale": "Generous spacing. Use py-24 or py-32 for major sections.",
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "border_radius": "Rounded-none or rounded-sm for a sharp, authoritative corporate look."
+  },
+  "components": [
+    "button",
+    "input",
+    "textarea",
+    "form",
+    "card"
+  ],
+  "media": {
+    "logo": "https://customer-assets.emergentagent.com/job_70c5e674-0507-43de-b39d-b6c0f0b963d9/artifacts/nrcv03h6_logo.png",
+    "hero_architecture": "https://images.unsplash.com/photo-1555238920-7a6bea18473b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBnbGFzcyUyMGFyY2hpdGVjdHVyZSUyMHNreXNjcmFwZXJ8ZW58MHx8fHwxNzc0OTc5MTU3fDA&ixlib=rb-4.1.0&q=85",
+    "about_professionals": "https://images.pexels.com/photos/8729937/pexels-photo-8729937.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "services_analytics": "https://images.pexels.com/photos/97080/pexels-photo-97080.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "team_meeting": "https://images.pexels.com/photos/7413935/pexels-photo-7413935.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "kolkata_skyline_footer": "https://images.unsplash.com/photo-1648964562779-36b7231fa44e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHw0fHxrb2xrYXRhJTIwY2l0eXNjYXBlJTIwc3VucmlzZSUyMHNreWxpbmV8ZW58MHx8fHwxNzc0OTc5MTI3fDA&ixlib=rb-4.1.0&q=85"
+  },
+  "instructions_to_main_agent": {
+    "global": "Ensure Cormorant Garamond is imported for headings and Manrope for body text via Google Fonts. Use lucide-react for icons. ALL interactive elements MUST have data-testid attributes.",
+    "nav": "Sticky header (z-50) using the 'Crystal Glass' approach: backdrop-blur-xl, bg-[#FAF9F6]/80, with a delicate bottom border-white/40. Logo on the left, primary navigation in the center, and a solid navy 'Consult With Us' button on the right.",
+    "hero": "Asymmetric layout. Left side: Massive H1 'Preserving Wealth, Optimizing Tax.' with a slightly indented paragraph explaining their Kolkata roots and 10+ years expertise. Right side: Use the 'hero_architecture' image softly masked or framed within a tall, elegant rectangular container. Overall background is primary #FAF9F6.",
+    "about": "Split layout with massive negative space. Use a giant '10+' typographic element in the background or side. Highlight 'Team of CAs & MBAs'. Use the 'about_professionals' image with a subtle offset drop-shadow or a 1px border. Background: secondary #F3F0EA.",
+    "services": "Implement the 'Grid Borders' (Technical) look. A CSS grid (md:grid-cols-2 lg:grid-cols-3) where each service block has `border-r border-b border-[#0B1B3D]/10`. The 5 services: Wealth Management, Tax Consulting & Planning, Financial Advisory, GST & Compliance, Investment Planning. Leave the 6th block empty or use it as a CTA. Hover effect: subtle background tint shift.",
+    "team": "Minimalist representation. Instead of individual cards if no avatars exist, use the 'team_meeting' image spanning wide, with overlapping text boxes describing the core leadership (CAs & MBAs).",
+    "blog_insights": "A 3-column clean layout for recent insights. Use dummy titles like 'Navigating GST Changes in 2026', 'Wealth Preservation for HNWIs', 'Corporate Tax Planning'. Minimalist borders, no heavy shadows.",
+    "contact": "Dark mode section to create a strong footer anchor. Background: #0B1B3D (Navy). Text: #FAF9F6. Left side: Contact details (Email: Connect@unovia.in, M: 7278671467, Location: Kolkata). Right side: Functional Shadcn form (Name, Email, Service Interest, Message). Form inputs should have a transparent background with white bottom borders, or clean white boxes."
+  }
+}
